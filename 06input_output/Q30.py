@@ -1,0 +1,5 @@
+n=input("n")
+a=input("a")
+h=input("h")
+c=input("c")
+print(f"My name is {n} , I am {a} years old , My height {h:.2f} , I am from {c}")

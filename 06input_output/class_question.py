@@ -38,3 +38,21 @@
 # a,b=map(None,input("Enter two number:").split())
 # print(a,b, type(a), type(b))
 # print(a+b)
+
+
+# d=(int,input("Enter date"))
+# m=(int,input("Enter month date"))
+# y=(int,input("Enter years"))
+# print(d,m,y ,sep="-")
+
+num=12
+if num%2==0 :
+    print("Even number")
+
+    if num%2==1 :
+        print("Odd number")
+
+        Number=int(input("Enter two digit"))
+        if Number%2==0
+
+
