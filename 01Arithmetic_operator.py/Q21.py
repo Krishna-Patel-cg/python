@@ -1,0 +1,13 @@
+a=10
+b=-3
+c=2.5
+print(a+b+c)
+print(a-b-c)
+print(a*b*c)
+print(a/b/c)
+print(a//b//c)
+print(a%b%c)
+print(a**b**c)
+print()
+print()
+print()
