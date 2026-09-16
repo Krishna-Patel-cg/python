@@ -142,3 +142,18 @@
 # ***
 # ****
 # *****
+
+# for i in range(0,10):
+#     for j in range (10-i,0,-1):
+#        print("0",end="")
+#     for k in range (1,2*i-2):
+#         print("*",end="")
+#     # for l in rnge()
+#     print()
+
+for i in range (0,8):
+    for j in range(8-i-1):
+       print(" ",end="")
+    for k in range(2*i+1):
+       print("*",end="")
+    print()
