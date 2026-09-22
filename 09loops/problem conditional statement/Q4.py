@@ -37,7 +37,7 @@ for i in password:
 count = 0
 if len(password) >= 8:
     count += 1
-if lowercase >= 1:
+if lowercase >=1:
     count += 1
 if uppercase >= 1:
     count += 1
