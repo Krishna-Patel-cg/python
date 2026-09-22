@@ -18,5 +18,5 @@ for i in range(1,9):
         print("Luxury")
 print(f"number of product in budget -> {cbudget}")
 print(f"number of products in regular -> {cregular}")
-print(f"number of products in premium -> {cpremium}")
+print(f"number of products in premium ->{cpremium}")
 print(f"number of product in luxury -> {cluxury}")
