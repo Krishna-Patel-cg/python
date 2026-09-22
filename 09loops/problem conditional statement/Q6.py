@@ -10,7 +10,7 @@ for i in a:
         print(f"{a} is odd number")
 for i in b:
     if int(i)%2==0:
-        print(f"{b} is even number")
+        print(f" {b} is even number")
     elif int(i)%2!=0:
         print("Equal number")
 for i in c:
