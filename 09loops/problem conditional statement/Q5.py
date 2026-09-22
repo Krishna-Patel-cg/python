@@ -15,4 +15,4 @@ for i in range(0,5):
         print("Long",end="")
 print(f"number of short paragraph -> {cshort}")
 print(f"number of medium paragraph -> {cmedium} ")
-print(f"number of long paragraph -> {clong}")
+print(f"number of long paragraph ->{clong}")
