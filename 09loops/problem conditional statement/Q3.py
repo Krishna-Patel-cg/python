@@ -4,7 +4,7 @@ digit=0
 special_character=0
 sentence=input("Enter your character").lower()
 for i in sentence:
-    if i=='a' or i=='e' or i=='i' or i=='o' or i=='u':
+    if i=='a'  or i=='e' or i=='i' or i=='o' or i=='u':
         vowel+=1
     elif ('a' <= i <= 'z') and (i!='a' or i!='e' or i!='i' or i!='o' or i!='u'):
         consonant+=1
