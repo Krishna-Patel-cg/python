@@ -7,7 +7,7 @@ for i in range(10):
     if mark<=35:
         confail+=1
         print("Fail")
-    elif 35<mark<50:
+    elif 35<mark<50: 
         conpass+=1
         print("pass")
     elif 50<mark<75:
