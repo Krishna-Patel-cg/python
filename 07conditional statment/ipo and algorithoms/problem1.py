@@ -12,6 +12,7 @@
 # read first number
 # read second number
 # sum two number
+# store result
 # print result
 # stop
 

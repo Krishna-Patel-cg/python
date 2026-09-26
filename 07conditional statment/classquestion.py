@@ -40,24 +40,30 @@
 # else:
 #     print("fail")
 
-print("1.Addition") 
-print("2.Subtraction")
-print("4.division") 
-print("3.Multiplication") 
-opration=int(input("Enter a number of operation tht you want to work"))
-if opration >4:
-    print("Invalid")
+# print("1.Addition") 
+# print("2.Subtraction")
+# print("4.division") 
+# print("3.Multiplication") 
+# opration=int(input("Enter a number of operation tht you want to work"))
+# if opration >4:
+#     print("Invalid")
 
 # num=input("two digit number")
-a,b = map(int,input("Enter two number").split()[:2])
-if opration==1:
-    print(a+b)
-elif opration==2:
-    print(a-b)
-elif opration==3:
-    print(a*b)
-elif opration==4:
-    print(a/b)
-else:
-    print("Thanks")
-     
+# a,b = map(int,input("Enter two number").split()[:2])
+# if opration==1:
+#     print(a+b)
+# elif opration==2:
+#     print(a-b)
+# elif opration==3:
+#     print(a*b)
+# elif opration==4:
+#     print(a/b)
+# else:
+#     print("Thanks")
+
+num=int(input("Enter your number"))
+a=num%10
+g=num//10
+f=g%10
+d=g//10
+print(d+f+a)
