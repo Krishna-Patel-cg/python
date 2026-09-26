@@ -45,14 +45,24 @@
 # y=(int,input("Enter years"))
 # print(d,m,y ,sep="-")
 
-num=12
-if num%2==0 :
-    print("Even number")
+# num=12
+# if num%2==0 :
+#     print("Even number")
 
-    if num%2==1 :
-        print("Odd number")
+#     if num%2==1 :
+#         print("Odd number")
 
-        Number=int(input("Enter two digit"))
-        if Number%2==0
+name=input("enter your name")
+
+if name=="krishna":
+    age=int(input("Enter your name: "))
+    if age>=18:
+        city=input("eneter yuor city name: ")
+        if city=="varanasi":
+            mobile=input("enter mobile number: ")
+            if mobile=="7398924004":
+                print("student profile detail right")
+
+        
 
 
