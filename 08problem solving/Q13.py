@@ -1,0 +1,1 @@
+alpha=input("Enter a alphabet").strip().lower().lower()
