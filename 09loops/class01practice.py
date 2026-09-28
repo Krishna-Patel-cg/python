@@ -151,9 +151,56 @@
 #     # for l in rnge()
 #     print()
 
-for i in range (0,8):
-    for j in range(8-i-1):
-       print(" ",end="")
-    for k in range(2*i+1):
-       print("*",end="")
-    print()
+# for i in range (0,8):
+#    for j in range(8-i-1):
+#       print("8",end="")
+#    for k in range(2*i+1):
+#       print("*",end="")
+#    for m in range(0,5):
+#       for l in range(5-i):
+#          print("9",end="")
+#    print()
+
+# total=0
+# flag=True
+# for i in range(5):
+#    marks=int(input("enter your marks"))
+#    total+=marks
+#    if marks<35:
+#       flag=False
+# if flag:
+#    percentage=total/5
+#    if percentage>=90:
+#       grade="A+"
+#    elif percentage>=80:
+#       grade="A"
+#    elif percentage>=70:
+#       grade="B+"
+#    elif percentage>=60:
+#       grade="B"
+#    elif percentage>=50:
+#      grade="C"
+#    elif percentage>35:
+#      grade="D"
+#    else:
+#       grade="F"
+# if flag==True:
+#    print(total,grade,percentage)
+#    print("You are pass")
+# if flag==False:
+#    print(total,grade,percentage)
+#    print("You are fail")
+# n=int(input(("enter your number")))
+# for i in range(1,n+1):
+#    for j in range(1,n+1):
+#       if j==1 or j==n or i==n or (n/2==j and n/2==i):
+#          print("*",end=" ") 
+#       else:
+#          print(" ",end=" ")
+#    print()
+
+n=int(input("Enter number"))
+nu=int(input("Enter number"))
+for i in range(1,2):
+   print(n**nu ,end=" ")
+print()

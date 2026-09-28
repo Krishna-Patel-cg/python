@@ -1,0 +1,5 @@
+string=input("Enter your number")
+n=0
+while n<len(string):
+    print(string[n],end=" ")
+    n+=1
