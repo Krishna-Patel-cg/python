@@ -1,9 +1,10 @@
 row=1
 n=5
 while n>=row:
-    column=1
-    while column<=5:
+    column=0
+    while column<=4:
         column+=1
-    print(row*row,end=" ")
-    # print()
+        # print(row*row,end="   ")
+        print(row*row,end="   ")
+    print("",end=" ")
     row+=1
