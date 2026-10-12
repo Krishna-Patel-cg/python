@@ -1,1203 +1,637 @@
-# Python: `break`, `continue`, and `pass`
+# Python Output Guessing Worksheet
 
-## 1. Introduction
+## Topics: `break`, `continue`, `for-else`, and `pass`
 
-Python provides three statements that control program flow:
+**Course:** Python Programming\
+**Level:** B.Tech --- First Semester\
+**Question Type:** Predict the Output\
+**Total Questions:** 35
 
-- `break` → stops the nearest loop completely.
-- `continue` → skips the current iteration and moves to the next iteration.
-- `pass` → does nothing; it is mainly used as a placeholder.
+------------------------------------------------------------------------
 
-```text
-break     → STOP the loop
-continue  → SKIP this iteration
-pass      → DO NOTHING
-```
+## Instructions for Students
 
----
+1.  Read each program carefully.
+2.  Write the **exact output** without running the code.
+3.  Preserve the order of the output lines.
+4.  Pay attention to indentation, `range()`, and the placement of
+    `print()`.
+5.  For questions with no output, write **No output**.
+6.  After attempting the worksheet, run the programs to verify your
+    answers.
 
-# 2. `break` Statement
+------------------------------------------------------------------------
 
-The `break` statement immediately terminates the **nearest enclosing loop**.
+# Section A --- Basic Questions
 
-## Syntax
+### Q1. `break` at the Beginning
 
-```python
-for variable in sequence:
-    if condition:
+Guess the output.
+
+``` python
+for i in range(1, 5):
+    if i == 1:
         break
+    print(i)
+
+print("End")
 ```
 
-## Example: `break` in a `for` loop
+**Your output:**
 
-```python
+``` text
+Write your answer here
+```
+
+### Q2. `break` in the Middle
+
+``` python
+for i in range(1, 7):
+    print(i)
+    if i == 4:
+        break
+print("Finished")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q3. `continue` Skips One Value
+
+``` python
 for i in range(1, 6):
-    if i == 4:
-        break
-
+    if i == 3:
+        continue
     print(i)
 ```
 
-### Output
+**Your output:**
 
-```text
-1
-2
-3
+``` text
+Write your answer here
 ```
 
-When `i` becomes `4`, `break` stops the loop. Python does not process `5`.
+### Q4. `pass` Does Nothing
 
----
-
-## Example: `break` in a `while` loop
-
-```python
-i = 1
-
-while i <= 5:
-    if i == 4:
-        break
-
+``` python
+for i in range(1, 5):
+    if i == 2:
+        pass
     print(i)
-    i += 1
 ```
 
-### Output
+**Your output:**
 
-```text
-1
-2
-3
+``` text
+Write your answer here
 ```
 
----
+### Q5. A Loop with `else`
 
-## `break` without a condition
-
-`break` can also be used directly inside a loop.
-
-```python
-for i in range(5):
-    break
-
-print("Hello")
-```
-
-### Output
-
-```text
-Hello
-```
-
-The loop stops during its first iteration.
-
----
-
-# 3. `break` in Nested Loops
-
-Important rule:
-
-> `break` stops only the nearest enclosing loop.
-
-Example:
-
-```python
-for i in range(1, 4):
-    for j in range(1, 4):
-        if j == 2:
-            break
-
-        print(i, j)
-```
-
-### Output
-
-```text
-1 1
-2 1
-3 1
-```
-
-The inner loop stops when `j == 2`, but the outer loop continues.
-
-## Important Edge Case
-
-```python
+``` python
 for i in range(3):
-    for j in range(3):
-        break
-
-    print(i)
-```
-
-### Output
-
-```text
-0
-1
-2
-```
-
-The `break` does **not** stop the outer loop.
-
----
-
-# 4. `continue` Statement
-
-The `continue` statement skips the remaining statements in the **current iteration**.
-
-The loop itself does not stop.
-
-## Syntax
-
-```python
-for variable in sequence:
-    if condition:
-        continue
-
-    statement
-```
-
----
-
-## Example: `continue` in a `for` loop
-
-```python
-for i in range(1, 6):
-    if i == 3:
-        continue
-
-    print(i)
-```
-
-### Output
-
-```text
-1
-2
-4
-5
-```
-
-When `i == 3`, Python skips `print(i)` and starts the next iteration.
-
----
-
-## Example: `continue` in a `while` loop
-
-```python
-i = 1
-
-while i <= 5:
-    if i == 3:
-        i += 1
-        continue
-
-    print(i)
-    i += 1
-```
-
-### Output
-
-```text
-1
-2
-4
-5
-```
-
----
-
-# 5. Important `while` + `continue` Edge Case
-
-Be very careful when using `continue` in a `while` loop.
-
-## Incorrect Example
-
-```python
-i = 1
-
-while i <= 5:
-    if i == 3:
-        continue
-
-    print(i)
-    i += 1
-```
-
-This creates an **infinite loop**.
-
-### Why?
-
-When `i` becomes `3`:
-
-```python
-continue
-```
-
-runs before:
-
-```python
-i += 1
-```
-
-So `i` stays `3` forever.
-
-### Correct Version
-
-```python
-i = 1
-
-while i <= 5:
-    if i == 3:
-        i += 1
-        continue
-
-    print(i)
-    i += 1
-```
-
-Now `i` changes from `3` to `4`.
-
-### Rule to Remember
-
-When using `continue` in a `while` loop:
-
-> Make sure the loop-control variable can still change.
-
----
-
-# 6. `continue` for Skipping Values
-
-`continue` is useful when we want to ignore certain values.
-
-## Example: Print only odd numbers
-
-```python
-for i in range(1, 11):
-    if i % 2 == 0:
-        continue
-
-    print(i)
-```
-
-### Output
-
-```text
-1
-3
-5
-7
-9
-```
-
-The even numbers are skipped.
-
----
-
-# 7. `continue` in Nested Loops
-
-`continue` affects only the nearest loop.
-
-```python
-for i in range(1, 4):
-    for j in range(1, 4):
-        if j == 2:
-            continue
-
-        print(i, j)
-```
-
-### Output
-
-```text
-1 1
-1 3
-2 1
-2 3
-3 1
-3 3
-```
-
-Only the current iteration of the inner loop is skipped.
-
----
-
-# 8. `pass` Statement
-
-`pass` means:
-
-> Do nothing.
-
-It is a placeholder statement.
-
-Python requires an indented statement after constructs such as:
-
-- `if`
-- `for`
-- `while`
-- `def`
-- `class`
-
-If we do not want to write the actual code yet, we can use `pass`.
-
-## Example
-
-```python
-if True:
-    pass
-```
-
-The program runs without doing anything inside the `if` block.
-
----
-
-# 9. `pass` in a Loop
-
-```python
-for i in range(5):
-    pass
-```
-
-There is no output.
-
-The loop still executes all five iterations.
-
----
-
-# 10. `pass` with `if`
-
-```python
-x = 10
-
-if x > 5:
-    pass
-
-print("Program finished")
-```
-
-### Output
-
-```text
-Program finished
-```
-
-`pass` does not stop or skip anything.
-
----
-
-# 13. `pass` Does NOT Skip an Iteration
-
-This is one of the most important differences.
-
-## Using `pass`
-
-```python
-for i in range(1, 5):
-    if i == 3:
-        pass
-
-    print(i)
-```
-
-### Output
-
-```text
-1
-2
-3
-4
-```
-
-`pass` does nothing, so `print(i)` still executes.
-
-## Using `continue`
-
-```python
-for i in range(1, 5):
-    if i == 3:
-        continue
-
-    print(i)
-```
-
-### Output
-
-```text
-1
-2
-4
-```
-
-`continue` skips the remaining code in the current iteration.
-
----
-
-# 14. `break` vs `continue` vs `pass`
-
-| Statement | Meaning | Loop stops? | Current iteration skipped? |
-|---|---|---:|---:|
-| `break` | Stop loop | Yes | Yes, because loop ends |
-| `continue` | Skip current iteration | No | Yes |
-| `pass` | Do nothing | No | No |
-
-## Simple Example
-
-### `break`
-
-```python
-for i in range(1, 6):
-    if i == 3:
-        break
-
-    print(i)
-```
-
-Output:
-
-```text
-1
-2
-```
-
-### `continue`
-
-```python
-for i in range(1, 6):
-    if i == 3:
-        continue
-
-    print(i)
-```
-
-Output:
-
-```text
-1
-2
-4
-5
-```
-
-### `pass`
-
-```python
-for i in range(1, 6):
-    if i == 3:
-        pass
-
-    print(i)
-```
-
-Output:
-
-```text
-1
-2
-3
-4
-5
-```
-
----
-
-# 15. Loop `else` with `break`
-
-Python allows an `else` block with loops.
-
-The loop `else` executes when the loop finishes **normally**.
-
-If `break` terminates the loop, the `else` block does not execute.
-
-## Example
-
-```python
-for i in range(1, 6):
-    if i == 3:
-        break
-else:
-    print("Loop completed")
-```
-
-### Output
-
-```text
-```
-
-Nothing is printed.
-
-The loop was terminated using `break`.
-
----
-
-## Without `break`
-
-```python
-for i in range(1, 6):
-    print(i)
-else:
-    print("Loop completed")
-```
-
-### Output
-
-```text
-1
-2
-3
-4
-5
-Loop completed
-```
-
----
-
-# 16. Loop `else` with `continue`
-
-`continue` does not terminate the loop.
-
-Therefore, the `else` block can still execute.
-
-```python
-for i in range(1, 6):
-    if i == 3:
-        continue
-
-    print(i)
-else:
-    print("Loop completed")
-```
-
-### Output
-
-```text
-1
-2
-4
-5
-Loop completed
-```
-
----
-
-# 17. Loop `else` with `pass`
-
-`pass` also does not terminate the loop.
-
-```python
-for i in range(1, 4):
-    pass
+    print("Python")
 else:
     print("Done")
 ```
 
-### Output
+**Your output:**
 
-```text
-Done
+``` text
+Write your answer here
 ```
 
----
+------------------------------------------------------------------------
 
-# 18. Searching with `break`
+# Section B --- Understand Where `print()` Is Placed
 
-A common use of `break` is stopping a search after finding the required value.
+### Q6. Print Before `break`
 
-```python
-numbers = [10, 20, 30, 40, 50]
-
-for number in numbers:
-    if number == 30:
-        print("Number found")
-        break
-```
-
-### Output
-
-```text
-Number found
-```
-
-There is no need to keep searching after the value is found.
-
----
-
-# 19. Skipping Invalid Data with `continue`
-
-Suppose we want to process only positive numbers.
-
-```python
-numbers = [10, -5, 20, -3, 30]
-
-for number in numbers:
-    if number < 0:
-        continue
-
-    print(number)
-```
-
-### Output
-
-```text
-10
-20
-30
-```
-
-Negative numbers are skipped.
-
----
-
-# 20. `break` in an Infinite `while` Loop
-
-Sometimes we intentionally create an infinite loop and use `break` to decide when to stop.
-
-```python
-while True:
-    number = int(input("Enter 0 to stop: "))
-
-    if number == 0:
-        break
-
-    print("You entered:", number)
-```
-
-The loop continues until the user enters `0`.
-
----
-
-# 21. `continue` in an Infinite Loop
-
-Example:
-
-```python
-while True:
-    number = int(input("Enter number: "))
-
-    if number < 0:
-        continue
-
-    print(number)
-```
-
-Negative numbers are skipped.
-
-But the loop has no `break`, so it continues forever.
-
-A better example:
-
-```python
-while True:
-    number = int(input("Enter number: "))
-
-    if number == 0:
-        break
-
-    if number < 0:
-        continue
-
-    print(number)
-```
-
-Behavior:
-
-```text
-0       → stop
-negative → skip
-positive → print
-```
-
----
-
-# 22. Common Mistake: Thinking `pass` Skips Code
-
-Consider:
-
-```python
-x = 5
-
-if x == 5:
-    pass
-
-print("Hello")
-```
-
-Output:
-
-```text
-Hello
-```
-
-`pass` does not skip `print("Hello")`.
-
-It only represents an empty statement.
-
----
-
-# 23. Common Mistake: Forgetting the Update with `continue`
-
-### Wrong
-
-```python
-i = 1
-
-while i <= 5:
-    if i == 3:
-        continue
-
-    i += 1
-```
-
-When `i == 3`, `continue` runs forever.
-
-### Correct
-
-```python
-i = 1
-
-while i <= 5:
-    if i == 3:
-        i += 1
-        continue
-
-    i += 1
-```
-
----
-
-# 24. Common Mistake: Expecting `break` to Stop All Nested Loops
-
-Consider:
-
-```python
-for i in range(3):
-    for j in range(3):
-        break
-
-    print("Outer:", i)
-```
-
-### Output
-
-```text
-Outer: 0
-Outer: 1
-Outer: 2
-```
-
-The `break` only stops the inner loop.
-
-## To Stop Multiple Nested Loops
-
-One simple approach is to use a flag.
-
-```python
-found = False
-
-for i in range(3):
-    for j in range(3):
-        if i == 1 and j == 1:
-            found = True
-            break
-
-    if found:
-        break
-```
-
-Now both loops can be stopped.
-
----
-
-# 25. `break` and `continue` Only Work Inside Loops
-
-This is invalid:
-
-```python
-break
-```
-
-outside a loop.
-
-Python raises:
-
-```text
-SyntaxError: 'break' outside loop
-```
-
-Similarly:
-
-```python
-continue
-```
-
-outside a loop causes:
-
-```text
-SyntaxError: 'continue' not properly in loop
-```
-
-`pass`, however, can be used outside a loop.
-
-```python
-pass
-```
-
-This is valid.
-
----
-
-# 28. Important Edge Cases
-
-## Edge Case 1: `break` happens before `print`
-
-```python
+``` python
 for i in range(1, 5):
+    print("A", i)
     if i == 3:
         break
-
-    print(i)
+    print("B", i)
 ```
 
-Output:
+**Your output:**
 
-```text
-1
-2
+``` text
+Write your answer here
 ```
 
-`3` is never printed.
+### Q7. `print()` After `continue`
 
----
-
-## Edge Case 2: `continue` happens before `print`
-
-```python
+``` python
 for i in range(1, 5):
-    if i == 3:
+    if i == 2:
         continue
-
-    print(i)
+    print("Value:", i)
+    print("Next line")
 ```
 
-Output:
+**Your output:**
 
-```text
-1
-2
-4
+``` text
+Write your answer here
 ```
 
----
+### Q8. `pass` Before `print()`
 
-## Edge Case 3: `pass` happens before `print`
-
-```python
-for i in range(1, 5):
-    if i == 3:
-        pass
-
-    print(i)
-```
-
-Output:
-
-```text
-1
-2
-3
-4
-```
-
----
-
-## Edge Case 4: `break` inside an `if`
-
-```python
-for i in range(10):
-    if i > 3:
-        break
-
-    print(i)
-```
-
-Output:
-
-```text
-0
-1
-2
-3
-```
-
----
-
-## Edge Case 5: `continue` with the last iteration
-
-```python
+``` python
 for i in range(1, 4):
+    if i == 2:
+        pass
+        print("Inside if")
+    print("Outside if", i)
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q9. `break` and Code Outside the Loop
+
+``` python
+for i in range(2, 8, 2):
+    print(i)
+    if i == 4:
+        break
+    print("Hello")
+
+print("After loop")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q10. `continue` and Multiple Prints
+
+``` python
+for i in range(1, 5):
+    print("Start", i)
     if i == 3:
         continue
+    print("End", i)
+```
 
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+------------------------------------------------------------------------
+
+# Section C --- `for-else` Behaviour
+
+### Q11. Normal Completion
+
+``` python
+for i in range(2, 5):
     print(i)
+else:
+    print("Loop completed")
 ```
 
-Output:
+**Your output:**
 
-```text
-1
-2
+``` text
+Write your answer here
 ```
 
-The loop still finishes normally.
+### Q12. `break` Prevents Loop `else`
 
----
-
-# 29. Practical Example: Password Attempts
-
-Suppose a user gets three attempts.
-
-```python
-correct_password = "python123"
-
-for attempt in range(3):
-    password = input("Enter password: ")
-
-    if password == correct_password:
-        print("Login successful")
+``` python
+for i in range(1, 6):
+    if i == 4:
         break
-
-    print("Wrong password")
+    print(i)
+else:
+    print("Completed")
+print("Program end")
 ```
 
-`break` stops the loop when the correct password is entered.
+**Your output:**
 
----
+``` text
+Write your answer here
+```
 
-# 30. Practical Example: Process Valid Numbers
+### Q13. `continue` Does Not Prevent Loop `else`
 
-```python
-numbers = [10, -2, 20, 0, 30]
-
-for number in numbers:
-
-    if number < 0:
+``` python
+for i in range(1, 5):
+    if i % 2 == 0:
         continue
-
-    if number == 0:
-        break
-
-    print(number)
-```
-
-### Output
-
-```text
-10
-20
-```
-
-Behavior:
-
-- `10` → print
-- `-2` → skip
-- `20` → print
-- `0` → stop
-- `30` → never reached
-
----
-
-# 31. Practice Problems: `break`
-
-## Problem 1
-
-Print numbers from `1` to `10`, but stop when the number becomes `6`.
-
-Expected output:
-
-```text
-1
-2
-3
-4
-5
-```
-
----
-
-## Problem 2
-
-Given:
-
-```python
-numbers = [10, 20, 30, 40, 50]
-```
-
-Search for `30`.
-
-Once found, print:
-
-```text
-Found
-```
-
-and stop the loop.
-
----
-
-## Problem 3
-
-Take numbers from the user continuously.
-
-Stop when the user enters `0`.
-
----
-
-## Problem 4
-
-Print numbers from `1` to `100`, but stop when you reach the first number divisible by `17`.
-
----
-
-# 32. Practice Problems: `continue`
-
-## Problem 1
-
-Print numbers from `1` to `20`, but skip all even numbers.
-
-Expected output:
-
-```text
-1
-3
-5
-7
-9
-11
-13
-15
-17
-19
-```
-
----
-
-## Problem 2
-
-Given:
-
-```python
-numbers = [10, -2, 30, -5, 40, -8]
-```
-
-Print only positive numbers using `continue`.
-
-Expected output:
-
-```text
-10
-30
-40
-```
-
----
-
-## Problem 3
-
-Print numbers from `1` to `20`.
-
-Skip numbers divisible by `3`.
-
----
-
-## Problem 4
-
-Given:
-
-```python
-numbers = [5, 12, 8, 21, 30, 7]
-```
-
-Print only numbers greater than `10`.
-
-Use `continue`.
-
----
-
-## Problem 3
-
-Write a program that checks whether a number is positive.
-
-For now, leave the positive case empty using `pass`.
-
----
-
-# 34. Mixed Practice Problems
-
-## Problem 1
-
-What is the output?
-
-```python
-for i in range(1, 6):
-    if i == 3:
-        break
-
     print(i)
+else:
+    print("Completed")
 ```
 
----
+**Your output:**
 
-## Problem 2
+``` text
+Write your answer here
+```
 
-What is the output?
+### Q14. Empty Sequence
 
-```python
-for i in range(1, 6):
-    if i == 3:
+``` python
+for i in range(5, 5):
+    print(i)
+else:
+    print("Else executed")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q15. `break` After Some Iterations
+
+``` python
+for letter in "CODE":
+    print(letter)
+    if letter == "D":
+        break
+else:
+    print("All letters checked")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q16. `pass` with `for-else`
+
+``` python
+for i in range(1, 4):
+    if i == 2:
+        pass
+    print(i)
+else:
+    print("Finished normally")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q17. Search for a Character
+
+``` python
+word = "banana"
+
+for ch in word:
+    if ch == "n":
+        print("Found")
+        break
+else:
+    print("Not found")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q18. Search Fails
+
+``` python
+word = "apple"
+
+for ch in word:
+    if ch == "z":
+        print("Found")
+        break
+else:
+    print("Not found")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+------------------------------------------------------------------------
+
+# Section D --- Strings and `continue`
+
+### Q19. Skip Vowels
+
+``` python
+for ch in "education":
+    if ch in "aeiou":
         continue
-
-    print(i)
+    print(ch, end="")
+print()
 ```
 
----
+**Your output:**
 
-## Problem 3
+``` text
+Write your answer here
+```
 
-What is the output?
+### Q20. Stop at a Particular Character
 
-```python
-for i in range(1, 6):
+``` python
+for ch in "programming":
+    if ch == "g":
+        break
+    print(ch, end="-")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q21. Skip and Then Stop
+
+``` python
+for ch in "computer":
+    if ch == "o":
+        continue
+    if ch == "t":
+        break
+    print(ch, end="")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q22. `pass` Inside a String Loop
+
+``` python
+for ch in "cat":
+    if ch == "a":
+        pass
+    print(ch.upper(), end=" ")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+------------------------------------------------------------------------
+
+# Section E --- `while` Loop Output Guessing
+
+### Q23. `break` in a `while` Loop
+
+``` python
+n = 1
+
+while n <= 5:
+    print(n)
+    if n == 3:
+        break
+    n += 1
+
+print("Stopped")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q24. `continue` in a `while` Loop
+
+``` python
+n = 0
+
+while n < 5:
+    n += 1
+    if n == 3:
+        continue
+    print(n)
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q25. `continue` After Updating the Variable
+
+``` python
+n = 1
+
+while n <= 5:
+    if n == 2:
+        n += 1
+        continue
+    print(n)
+    n += 1
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q26. `break` Before Updating the Variable
+
+``` python
+n = 1
+
+while n <= 4:
+    if n == 3:
+        break
+    print(n)
+    n += 1
+
+print(n)
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+------------------------------------------------------------------------
+
+# Section F --- Nested Loops and Loop Control
+
+**Reminder:** `break` and `continue` affect the nearest enclosing loop
+in which they appear.
+
+### Q27. `break` in the Inner Loop
+
+``` python
+for row in range(1, 4):
+    for col in range(1, 5):
+        if col == 3:
+            break
+        print(row, col)
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q28. `continue` in the Inner Loop
+
+``` python
+for row in range(1, 3):
+    for col in range(1, 4):
+        if col == 2:
+            continue
+        print(row, col)
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q29. `break` Does Not Stop the Outer Loop
+
+``` python
+for i in range(1, 4):
+    print("Outer", i)
+    for j in range(1, 4):
+        if j == 2:
+            break
+        print("Inner", j)
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q30. Inner Loop `else`
+
+``` python
+for i in range(1, 4):
+    for j in range(1, 4):
+        if j == 2:
+            break
+        print(i, j)
+    else:
+        print("Inner else", i)
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q31. `continue` with Inner Loop `else`
+
+``` python
+for i in range(1, 3):
+    for j in range(1, 4):
+        if j == 2:
+            continue
+        print(i, j)
+    else:
+        print("Inner loop complete")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+------------------------------------------------------------------------
+
+# Section G --- Tricky Mixed Questions
+
+### Q32. `continue`, `break`, and `for-else`
+
+``` python
+for i in range(1, 7):
+    if i == 2:
+        continue
+    if i == 5:
+        break
+    print(i)
+else:
+    print("Loop else")
+print("End")
+```
+
+**Your output:**
+
+``` text
+Write your answer here
+```
+
+### Q33. `pass` Does Not Skip the Next Statement
+
+``` python
+for i in range(1, 5):
     if i == 3:
         pass
-
-    print(i)
+    else:
+        print("Else block", i)
+    print("Number", i)
 ```
 
----
+**Your output:**
 
-## Problem 4
+``` text
+Write your answer here
+```
 
-What happens in this program?
+### Q34. Two `print()` Statements Around `continue`
 
-```python
-i = 1
-
-while i <= 5:
-    if i == 3:
+``` python
+for i in range(1, 5):
+    print("X", end="")
+    if i == 2:
         continue
-
-    print(i)
-    i += 1
+    print("Y", end="")
+print("Z")
 ```
 
----
+**Your output:**
 
-## Problem 5
+``` text
+Write your answer here
+```
 
-What is the output?
+### Q35. Predict Carefully
 
-```python
+``` python
 for i in range(1, 5):
     if i == 2:
         pass
@@ -1205,163 +639,33 @@ for i in range(1, 5):
         continue
     elif i == 4:
         break
-
     print(i)
-```
-
----
-
-## Problem 6
-
-What is the output?
-
-```python
-for i in range(1, 6):
-    if i == 3:
-        break
 else:
-    print("Done")
+    print("Completed")
+print("Outside")
 ```
 
----
+**Your output:**
 
-## Problem 7
-
-What is the output?
-
-```python
-for i in range(1, 6):
-    if i == 3:
-        continue
-else:
-    print("Done")
+``` text
+Write your answer here
 ```
 
----
+------------------------------------------------------------------------
 
-# 35. Challenge Problems
+# Student Self-Check
 
-## Challenge 1
+After completing the worksheet, make sure you can answer these
+questions:
 
-Write a program that keeps asking the user for numbers.
+1.  What is the difference between `break` and `continue`?
+2.  Does `pass` skip the current iteration?
+3.  When does a loop's `else` block execute?
+4.  Does `continue` prevent a loop's `else` block from executing?
+5.  In nested loops, which loop is affected by `break`?
+6.  Can an empty `range()` cause a loop's `else` block to execute?
+7.  Why must a `while` loop update its variable correctly when using
+    `continue`?
 
-Rules:
-
-- Positive number → print it.
-- Negative number → skip it using `continue`.
-- `0` → stop using `break`.
-
----
-
-## Challenge 2
-
-Given:
-
-```python
-numbers = [12, 5, -4, 18, 0, 25, 30]
-```
-
-Process the list using these rules:
-
-- Negative number → skip.
-- `0` → stop.
-- Positive number → print.
-
-Expected output:
-
-```text
-12
-5
-18
-```
-
----
-
-## Challenge 3
-
-Write a program that searches for a number in a list.
-
-If found:
-
-```text
-Number found
-```
-
-If the loop finishes without finding it:
-
-```text
-Number not found
-```
-
-Hint: Use `break` and loop `else`.
-
----
-
-# 36. Quick Revision
-
-### `break`
-
-Use when:
-
-> "I want to stop the loop now."
-
-```python
-if condition:
-    break
-```
-
-### `continue`
-
-Use when:
-
-> "I do not want to process this iteration."
-
-```python
-if condition:
-    continue
-```
-
-### `pass`
-
-Use when:
-
-> "I need a statement here, but I want to do nothing for now."
-
-```python
-if condition:
-    pass
-```
-
----
-
-# 37. Final Cheat Sheet
-
-```text
-┌───────────┬──────────────────────────────────┐
-│ Statement │ Purpose                          │
-├───────────┼──────────────────────────────────┤
-│ break     │ Stop the nearest loop            │
-│ continue  │ Skip current iteration           │
-│ pass      │ Do nothing                       │
-└───────────┴──────────────────────────────────┘
-```
-
-Remember:
-
-```text
-break     → Loop STOP
-continue  → Iteration SKIP
-pass      → NOTHING
-```
-
-## Most Important Edge Case
-
-Be especially careful with:
-
-```python
-while condition:
-    if condition:
-        continue
-```
-
-If the variable controlling the `while` condition is not updated before `continue`, the loop may become an **infinite loop**.
+**Challenge:** Recreate any five programs from memory and explain the
+execution line by line to a classmate.
