@@ -12,4 +12,3 @@ balance -= withdrawal
 print(f"\nWithdrawal successful! Amount withdrawn: ₹{withdrawal:.2f}")
 print(f"Remaining balance: ₹{balance:.2f}")
 
-    
