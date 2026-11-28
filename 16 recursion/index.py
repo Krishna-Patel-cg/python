@@ -11,11 +11,26 @@
 
 # --------------------------------------------------------------------
 
-add=0
-def addition(n):
+# add=0
+# def addition(n):
+#     global add
+#     add +=n
+#     if (n==10):
+#         return add
+#     return addition(n+1)
+# print(addition(1))
+
+
+
+
+index = 1
+add =0
+def num(n):
+    global index
     global add
-    add +=n
-    if (n==10):
+    if n<10:
         return add
-    return addition(n+1)
-print(addition(1))
+    add+=n%10
+    return num(n//10)
+num(583246)
+print(add)
