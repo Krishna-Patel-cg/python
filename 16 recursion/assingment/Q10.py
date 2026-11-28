@@ -1,8 +1,8 @@
-def power(n,m):
-    if n==0:
-        return 1
-    print(n**m)
-power(2,3)
+# def power(n,m):
+#     if n==0:
+#         return 1
+#     print(n**m)
+# power(2,3)
 
 
 
